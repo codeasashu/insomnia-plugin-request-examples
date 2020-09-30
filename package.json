@@ -1,0 +1,33 @@
+{
+  "name": "insomnia-plugin-response-examples",
+  "version": "0.0.1",
+  "private": true,
+  "insomnia": {
+    "name": "response-examples",
+    "description": "Add response example to insomnia client"
+  },
+  "main": "dist/index.js",
+  "dependencies": {
+    "babel-loader": "^8.1.0",
+    "insomnia-openapi-converter": "*"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js --display errors-only",
+    "watch": "webpack --config webpack.config.js --watch",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "autobind-decorator": "^2.4.0",
+    "insomnia-components": "^2.2.23",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "url-join": "^4.0.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
