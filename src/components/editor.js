@@ -1,8 +1,6 @@
 // @flow
 import * as React from 'react';
 import autobind from 'autobind-decorator';
-import 'codemirror/lib/codemirror.css';
-import '../../css/editor.less';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/yaml/yaml';
 import { debounce } from "../utils"

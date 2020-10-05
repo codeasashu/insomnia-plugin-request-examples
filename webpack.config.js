@@ -27,15 +27,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
-      },
-      {
-        test: /\.(less|css)$/,
-        use: [
-          'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          { loader: 'less-loader', options: { lessOptions: {ieCompat: false} } },
-        ],
-      },
+      }
     ],
   },
 };
