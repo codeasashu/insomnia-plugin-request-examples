@@ -1,19 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ResponseExample from './src/index'
 
 export const requestTabs = [
     {
         label: "Example tab",
         icon: "fa-star",
-        panelBody: (context, { request }) => {
+        panelBody: async (context, { request }) => {
             const root = document.createElement('div');
+            root.setAttribute("style","height:100%");
 
             ReactDOM.render(
-                <h1>Tab content here!</h1>,
+                <ResponseExample
+                    className="app-request-examples"
+                    store={context.store}
+                    request={request} 
+                />,
                 root,
             );
 
-            return root
+            return root;
         },
     }
 ];

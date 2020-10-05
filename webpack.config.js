@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: { index: './index.js' },
   target: 'node',
-  mode: 'production',
+  mode: 'development',
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -27,6 +27,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.(less|css)$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          { loader: 'less-loader', options: { lessOptions: {ieCompat: false} } },
+        ],
       },
     ],
   },
