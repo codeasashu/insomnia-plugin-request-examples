@@ -64,6 +64,13 @@ class ResponseExample extends React.PureComponent {
         this.setState({ activity: EXAMPLE_HOME }) //Route to home after editing
     }
 
+    async _handleDelete(example) {
+        let _examples = this.state.examples;
+        const remainingExamples = _examples.filter(e => e._id !== example._id)
+        await this._setExamples(remainingExamples);
+        this.setState({ activity: EXAMPLE_HOME }) //Route to home after deleting
+    }
+
     async _getExamples() {
         const { store, request } = this.props
         let examples = await store.getItem(request._id)
@@ -119,6 +126,7 @@ class ResponseExample extends React.PureComponent {
                     <ExampleHome
                         wrapperProps={this.props}
                         examples={examples}
+                        handleDelete={this._handleDelete}
                         handleSetActiveExample={this._handleSetActiveExample}
                     />
                 )}

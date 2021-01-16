@@ -8,12 +8,15 @@ import {
     DropdownItem,
     SvgIcon,
 } from 'insomnia-components'
-
 @autobind
 class ExampleHome extends React.PureComponent {
 
-    _handleDelete(example) {
-        console.log('Handle delete example', example)
+    async _handleDelete(example) {
+        const { handleDelete } = this.props;
+        if(confirm("Do you wish to delete?")) {
+            await handleDelete(example);
+            console.log('deleted example', example);
+        }
     }
 
     _getMenuButton({ open }) {
@@ -48,8 +51,8 @@ class ExampleHome extends React.PureComponent {
                             docMenu={
                             <Dropdown renderButton={this._getMenuButton}>
                                 <DropdownItem
-                                        className="danger"
-                                        onClick={() => this._handleDelete(example)}>
+                                    className="danger"
+                                    onClick={() => this._handleDelete(example)}>
                                     Delete
                                 </DropdownItem>
                             </Dropdown>}
