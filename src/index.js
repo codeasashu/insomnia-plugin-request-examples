@@ -51,6 +51,7 @@ class ResponseExample extends React.PureComponent {
         const { examples } = this.state;
         const _id = uuidv4().replace(/-/g, '');
         await this._setExamples([...examples, {...example, _id}])
+        this.setState({ activity: EXAMPLE_HOME }) //Route to home after adding
     }
 
     async _handleExampleUpdate(example, exampleId) {
@@ -60,6 +61,7 @@ class ResponseExample extends React.PureComponent {
             ...otherExamples,
             {...example, _id: exampleId}
         ])
+        this.setState({ activity: EXAMPLE_HOME }) //Route to home after editing
     }
 
     async _getExamples() {
@@ -104,10 +106,12 @@ class ResponseExample extends React.PureComponent {
                     }
                     gridRight={
                         <React.Fragment>
-                            <Button
-                                onClick={this._handleAddExample}
-                                variant="outlined"
-                            >Add example</Button>
+                            {activity === EXAMPLE_HOME && (
+                                <Button
+                                    onClick={this._handleAddExample}
+                                    variant="outlined"
+                                >Add example</Button>
+                            )}
                         </React.Fragment>
                     }
                 />
