@@ -4,7 +4,7 @@ import ResponseExample from './src/index'
 
 export const requestTabs = [
     {
-        label: "Example tab",
+        label: "Responses",
         icon: "fa-star",
         panelBody: async (context, { request }) => {
             const root = document.createElement('div');
