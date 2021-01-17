@@ -29,7 +29,7 @@ const BASE_CODEMIRROR_OPTIONS = {
   indentUnit: TAB_SIZE,
   hintOptions: null,
   dragDrop: true,
-  viewportMargin: 30, // default 10
+  viewportMargin: Infinity, // default 10
   selectionPointer: 'default',
   styleActiveLine: true,
   indentWithTabs: true,
@@ -113,13 +113,17 @@ class ExampleEditor extends React.PureComponent {
   render() {
     const { defaultValue } = this.props
     return (
-      <textarea
-          key={'foo'}
-          ref={this._handleInitTextarea}
-          style={{ display: 'none' }}
-          autoComplete="off"
-          defaultValue={defaultValue}
-      />
+      <div className={'editor'}>
+        <div className={'editor__container input'}>
+          <textarea
+              key={'foo'}
+              ref={this._handleInitTextarea}
+              style={{ display: 'none' }}
+              autoComplete="off"
+              defaultValue={defaultValue}
+          />
+        </div>
+      </div>
     );
   }
 }

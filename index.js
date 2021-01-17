@@ -8,7 +8,7 @@ export const requestTabs = [
         icon: "fa-star",
         panelBody: async (context, { request }) => {
             const root = document.createElement('div');
-            root.setAttribute("style","height:100%");
+            root.setAttribute("style","height:100%;overflow: scroll;");
 
             ReactDOM.render(
                 <ResponseExample

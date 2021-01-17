@@ -59,8 +59,7 @@ class ExampleAdd extends React.PureComponent {
         } = this.state
         console.log('val2', content)
         return (
-            <div className={'editor editor--dynamic-height'}>
-              <div className={'editor__container pad pad-sm'} style={{fontSize: '12px'}}>
+              <div className={'pad pad-sm tall'} style={{fontSize: '12px'}}>
                 <ExampleTitle value={title} handleChange={this._handleTitleChange} placeholder="Enter Title" />
                 <div className={'form-control form-control--underlined form-control--wide'}>
                     <StatusCodeDropdown className={'pad pad-sm'} statuscode={status_code} onChange={this._handleStatusCodeChange} />
@@ -82,7 +81,6 @@ class ExampleAdd extends React.PureComponent {
                     defaultValue={content}
                 />
               </div>
-            </div>
         )
     }
 }
